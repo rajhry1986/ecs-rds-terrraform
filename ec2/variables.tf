@@ -24,7 +24,8 @@ variable "autoscaling-group-name" {
 
 variable "max-instance-size" {
     description = "The name for the autoscaling group for the cluster."
-    default     = 4
+    type        = number
+    default     = 3
 }
 
 variable "min-instance-size" {

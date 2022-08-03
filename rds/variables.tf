@@ -3,8 +3,9 @@ variable "environment" {
 }
 
 variable "subnet_ids" {
-  type        = "list"
+  type        = list
   description = "Subnet ids"
+  default     = ["subnet-02cd7f21c502a19fb","subnet-0ef6c11ed1208f70e"]
 }
 
 variable "vpc_id" {

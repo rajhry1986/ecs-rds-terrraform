@@ -10,8 +10,6 @@ module "vpc" {
     source = "./vpc"
 }
 
-
-
 module "ec2" {
     source = "./ec2"
 
@@ -33,7 +31,7 @@ module "rds" {
   database_name     = "${var.production_database_name}"
   database_username = "${var.production_database_username}"
   database_password = "${var.production_database_password}"
-  subnet_ids        = ["${module.vpc.subnet1-id}", "${module.vpc.subnet2-id}"]
+  #subnet_ids        = ["${module.vpc.subnet1-id},${module.vpc.subnet2-id}"]
   vpc_id            = "${module.vpc.id}"
   instance_class    = "db.t2.micro"
 }

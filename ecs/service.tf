@@ -46,7 +46,7 @@ resource "aws_efs_file_system" "wordpress-data" {
   creation_token = "es-persistent-data"
   performance_mode = "generalPurpose"
 
-  tags {
+  tags = {
     Name = "wordpress-data"
   }
 }
@@ -63,7 +63,7 @@ resource "aws_ecs_service" "demo-ecs-service" {
   	cluster         = "${aws_ecs_cluster.demo-ecs-cluster.id}"
   	task_definition = "${aws_ecs_task_definition.demo-sample-definition.arn}"
   	desired_count   = 1
-    depends_on      = ["aws_alb_listener.alb-listener"]
+    depends_on      = [aws_alb_listener.alb-listener]
 
   	load_balancer {
     	#target_group_arn  = "${var.ecs-target-group-arn}"
